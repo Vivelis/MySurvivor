@@ -7,20 +7,26 @@ public class TooltipSystem : MonoBehaviour
     public static TooltipSystem instance;
 
     [SerializeField]
-    private GameObject tooltip;
+    private Tooltip tooltip;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void Show()
+    public void Show(string header, string content = "")
     {
-        tooltip.SetActive(true);
+        if (header == null)
+        {
+            Hide();
+            return;
+        }
+        tooltip.SetText(header, content);
+        tooltip.gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        tooltip.SetActive(false);
+        tooltip.gameObject.SetActive(false);
     }
 }

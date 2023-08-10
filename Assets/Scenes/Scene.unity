@@ -163,9 +163,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -57.270767, y: -39.593933}
   m_SizeDelta: {x: 114.54161, y: 79.18784}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &19105928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -260,6 +260,7 @@ MonoBehaviour:
   contentField: {fileID: 1858286003}
   layoutElement: {fileID: 19105933}
   maxCharacters: 80
+  rectTransform: {fileID: 19105927}
 --- !u!114 &19105933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543f1fc06beab824b9b14a4dd46ad572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltip: {fileID: 19105926}
+  tooltip: {fileID: 19105932}
 --- !u!4 &418618403
 Transform:
   m_ObjectHideFlags: 0
@@ -3798,7 +3799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4256,7 +4257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

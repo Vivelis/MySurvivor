@@ -49,9 +49,9 @@ public class Inventory : MonoBehaviour
     {
         for (int slotIndex = 0; slotIndex < content.Count; slotIndex++)
         {
-            Transform slotTransform = inventorySlotsParent.GetChild(slotIndex);
-
-            slotTransform.GetChild(0).GetComponent<Image>().sprite = content[slotIndex].visual;
+            Slot currentSlot = inventorySlotsParent.GetChild(slotIndex).GetComponent<Slot>();
+            currentSlot.item = content[slotIndex];
+            currentSlot.itemVisual.sprite = content[slotIndex].visual;
         }
     }
 

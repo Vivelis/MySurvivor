@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   itemName: Stone
+  itemDescription: A magnificent rock !
   visual: {fileID: 21300000, guid: f7111abcf951a1f4398426869d06640b, type: 3}
   prefab: {fileID: 6363862280924644905, guid: 1b86298f7a93069459919aeefefb490f, type: 3}
