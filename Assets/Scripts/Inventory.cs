@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance;
+    private ItemData itemCurrentlySelected;
+
     [SerializeField]
     private List<ItemData> content = new List<ItemData>();
 
@@ -14,7 +17,31 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Transform inventorySlotsParent;
 
-    const int InventorySize = 24;
+    [SerializeField]
+    private Sprite emptySlotVisual;
+
+    private const int InventorySize = 24;
+
+    [Header("Action Panel References")]
+    [SerializeField]
+    private GameObject actionPanel;
+
+    [SerializeField]
+    private GameObject useItemButton;
+
+    [SerializeField]
+    private GameObject equipItemButton;
+
+    [SerializeField]
+    private GameObject dropItemButton;
+
+    [SerializeField]
+    private GameObject destroyItemButton;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -47,6 +74,14 @@ public class Inventory : MonoBehaviour
 
     private void RefreshContent()
     {
+        for (int slotIndex = 0; slotIndex < inventorySlotsParent.childCount; slotIndex++)
+        {
+            Slot currentSlot = inventorySlotsParent.GetChild(slotIndex).GetComponent<Slot>();
+
+            currentSlot.item = null;
+            currentSlot.itemVisual.sprite = emptySlotVisual;
+        }
+
         for (int slotIndex = 0; slotIndex < content.Count; slotIndex++)
         {
             Slot currentSlot = inventorySlotsParent.GetChild(slotIndex).GetComponent<Slot>();
@@ -58,5 +93,64 @@ public class Inventory : MonoBehaviour
     public bool IsFull()
     {
         return content.Count >= InventorySize;
+    }
+
+    // Action Panel Functions
+    public void OpenActionPanel(ItemData item)
+    {
+        itemCurrentlySelected = item;
+
+        if (item == null)
+            return;
+        switch (item.itemType)
+        {
+            case ItemType.Ressource:
+                useItemButton.SetActive(false);
+                equipItemButton.SetActive(false);
+                break;
+            case ItemType.Equipment:
+                useItemButton.SetActive(false);
+                equipItemButton.SetActive(true);
+                break;
+            case ItemType.Consumable:
+                useItemButton.SetActive(true);
+                equipItemButton.SetActive(false);
+                break;
+            default:
+                break;
+        }
+
+        actionPanel.SetActive(true);
+    }
+
+    public void CloseActionPanel()
+    {
+        actionPanel.SetActive(false);
+        itemCurrentlySelected = null;
+    }
+
+    // Buttons Functions
+    public void UseActionButton()
+    {
+        print("Use item : " + itemCurrentlySelected.name);
+        CloseActionPanel();
+    }
+
+    public void EquipActionButton()
+    {
+        print($"Equip item : {itemCurrentlySelected.name}");
+        CloseActionPanel();
+    }
+
+    public void DropActionButton()
+    {
+        CloseActionPanel();
+    }
+
+    public void DestroyActionButton()
+    {
+        RemoveItem(itemCurrentlySelected);
+        RefreshContent();
+        CloseActionPanel();
     }
 }
