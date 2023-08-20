@@ -20,8 +20,25 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Sprite emptySlotVisual;
 
+
+    [Header("Equipment Attributes")]
     [SerializeField]
     private EquipmentLibrary equipmentLibrary;
+
+    [SerializeField]
+    private Image headSlotImage;
+
+    [SerializeField]
+    private Image chestSlotImage;
+
+    [SerializeField]
+    private Image handsSlotImage;
+
+    [SerializeField]
+    private Image legsSlotImage;
+
+    [SerializeField]
+    private Image feetsSlotImage;
 
     [Header("Utility References")]
     [SerializeField]
@@ -166,8 +183,6 @@ public class Inventory : MonoBehaviour
 
     public void EquipActionButton()
     {
-        print($"Equip item : {itemCurrentlySelected.name}");
-
         EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem => elem.itemData == itemCurrentlySelected).First();
         if ( equipmentLibraryItem != null )
         {
@@ -176,6 +191,26 @@ public class Inventory : MonoBehaviour
                 equipmentLibraryItem.elementsToDisable[i].SetActive(false);
             }
             equipmentLibraryItem.itemPrefab.SetActive(true);
+
+            switch (itemCurrentlySelected.equipmentType)
+            {
+                case EquipmentType.Head:
+                    headSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+                case EquipmentType.Chest:
+                    chestSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+                case EquipmentType.Hands:
+                    handsSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+                case EquipmentType.Legs:
+                    legsSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+                case EquipmentType.Feets:
+                    feetsSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+            }
+
             RemoveItem(itemCurrentlySelected);
             RefreshContent();
         }
