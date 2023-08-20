@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53c05dd7b22785b4cba21bbd5832fc25, type: 3}
-  m_Name: StarterPants
+  m_Name: IronGloves
   m_EditorClassIdentifier: 
-  itemName: StarterPants
+  itemName: IronGloves
   itemDescription: 
   itemType: 1
-  visual: {fileID: 21300000, guid: dff4124e641058b4589e05274e744e74, type: 3}
-  prefab: {fileID: 6442810472823796254, guid: a90b712fa9f32944ba27d16dfa668d5c, type: 3}
+  equipmentType: 2
+  visual: {fileID: 21300000, guid: 3f3f612e2e18b4742ba62c1d294abdc6, type: 3}
+  prefab: {fileID: 1050761892610392260, guid: 1ec8d57b6edd7ab489669223ef5b8363, type: 3}

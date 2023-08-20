@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53c05dd7b22785b4cba21bbd5832fc25, type: 3}
-  m_Name: StarterChest
+  m_Name: StarterPants
   m_EditorClassIdentifier: 
-  itemName: StarterChest
+  itemName: StarterPants
   itemDescription: 
   itemType: 1
-  visual: {fileID: 21300000, guid: 0ecfc25e64ad1ef4b9775690fa709b5a, type: 3}
-  prefab: {fileID: 7909594400410007476, guid: 05bd36fa86221ba48977612459f1108e, type: 3}
+  equipmentType: 3
+  visual: {fileID: 21300000, guid: dff4124e641058b4589e05274e744e74, type: 3}
+  prefab: {fileID: 6442810472823796254, guid: a90b712fa9f32944ba27d16dfa668d5c, type: 3}

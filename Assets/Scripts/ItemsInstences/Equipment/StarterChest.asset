@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53c05dd7b22785b4cba21bbd5832fc25, type: 3}
-  m_Name: IronBoots
+  m_Name: StarterChest
   m_EditorClassIdentifier: 
-  itemName: IronBoots
+  itemName: StarterChest
   itemDescription: 
-  itemType: 0
-  visual: {fileID: 21300000, guid: afd2e8edfd779164c8c91cb789a8e90c, type: 3}
-  prefab: {fileID: 7446799503350853571, guid: 1e40f314187bc9745a0402aafd5da80c, type: 3}
+  itemType: 1
+  equipmentType: 1
+  visual: {fileID: 21300000, guid: 0ecfc25e64ad1ef4b9775690fa709b5a, type: 3}
+  prefab: {fileID: 7909594400410007476, guid: 05bd36fa86221ba48977612459f1108e, type: 3}

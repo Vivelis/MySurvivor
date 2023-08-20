@@ -15,5 +15,6 @@ MonoBehaviour:
   itemName: StarterBoots
   itemDescription: 
   itemType: 1
+  equipmentType: 4
   visual: {fileID: 21300000, guid: c636fde9129857d409019264abc7ab79, type: 3}
   prefab: {fileID: 7667692780182718652, guid: d3b20df16766ffb40a25c4b8c16544dc, type: 3}
