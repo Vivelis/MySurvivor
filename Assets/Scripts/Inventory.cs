@@ -7,12 +7,11 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     private ItemData itemCurrentlySelected;
+    private const int InventorySize = 24;
 
+    [Header("Inventory Attributes")]
     [SerializeField]
     private List<ItemData> content = new List<ItemData>();
-
-    [SerializeField]
-    private GameObject inventoryPanel;
 
     [SerializeField]
     private Transform inventorySlotsParent;
@@ -20,12 +19,21 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Sprite emptySlotVisual;
 
-    private const int InventorySize = 24;
+    [Header("Utility References")]
+    [SerializeField]
+    private Transform dropPoint;
 
-    [Header("Action Panel References")]
+    [Header("Canvas References")]
+    [SerializeField]
+    private GameObject inventoryPanel;
+
     [SerializeField]
     private GameObject actionPanel;
 
+    [SerializeField]
+    private GameObject toolTip;
+
+    [Header("Action Panel References")]
     [SerializeField]
     private GameObject useItemButton;
 
@@ -37,6 +45,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     private GameObject destroyItemButton;
+
 
     private void Awake()
     {
@@ -52,7 +61,10 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+            if (inventoryPanel.activeSelf)
+                CloseInventoryPanel();
+            else
+                OpenInventoryPanel();
         }
     }
 
@@ -67,9 +79,17 @@ public class Inventory : MonoBehaviour
         content.Remove(item);
     }
 
+    public void OpenInventoryPanel()
+    {
+        inventoryPanel.SetActive(true);
+    }
+
     public void CloseInventoryPanel()
     {
         inventoryPanel.SetActive(false);
+        actionPanel.SetActive(false);
+        toolTip.SetActive(false);
+
     }
 
     private void RefreshContent()
@@ -96,12 +116,15 @@ public class Inventory : MonoBehaviour
     }
 
     // Action Panel Functions
-    public void OpenActionPanel(ItemData item)
+    public void OpenActionPanel(ItemData item, Vector3 slotPosition)
     {
         itemCurrentlySelected = item;
 
         if (item == null)
+        {
+            CloseActionPanel();
             return;
+        }
         switch (item.itemType)
         {
             case ItemType.Ressource:
@@ -120,6 +143,7 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
+        actionPanel.transform.position = slotPosition;
         actionPanel.SetActive(true);
     }
 
@@ -144,6 +168,9 @@ public class Inventory : MonoBehaviour
 
     public void DropActionButton()
     {
+        GameObject instantiatedItem = Instantiate(itemCurrentlySelected.prefab, dropPoint.position, dropPoint.rotation);
+        RemoveItem(itemCurrentlySelected);
+        RefreshContent();
         CloseActionPanel();
     }
 

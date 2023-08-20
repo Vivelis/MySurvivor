@@ -24,6 +24,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void ClickOnSlot()
     {
-        Inventory.instance.OpenActionPanel(item);
+        Inventory.instance.OpenActionPanel(item, transform.position);
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c05dd7b22785b4cba21bbd5832fc25, type: 3}
+  m_Name: StarterChest
+  m_EditorClassIdentifier: 
+  itemName: StarterChest
+  itemDescription: 
+  itemType: 1
+  visual: {fileID: 21300000, guid: 0ecfc25e64ad1ef4b9775690fa709b5a, type: 3}
+  prefab: {fileID: 7909594400410007476, guid: 05bd36fa86221ba48977612459f1108e, type: 3}

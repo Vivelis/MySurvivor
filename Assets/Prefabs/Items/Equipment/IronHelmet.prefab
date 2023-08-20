@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7487598721937904072}
   - component: {fileID: 675755867238440222}
   m_Layer: 6
-  m_Name: Iron Helmet
+  m_Name: IronHelmet
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
